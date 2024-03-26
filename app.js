@@ -11,9 +11,17 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 app.listen(port,(req,res)=>{
     console.log("Server start");
 })
+
+//mysql connection
+// const con=mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "Pratham@1617",
+//   database: "ngo"
+// })
  
 //user login page
-app.get("/views/loginreq.ejs",(req,res)=>{
+app.get("/loginreq",(req,res)=>{
     res.render("loginreq.ejs");
 })
 
@@ -24,6 +32,16 @@ app.post("/Logsubmit",(req,res)=>{
 
 //NGO display
 app.get("/ngodetails",(req,res)=>{ // convert get into post later
+    // let pincode=req.body;
+    // let ngoarray=[];
+    // for(let i=0;i<=3;i++){
+    //     pincode=pincode.slice(-i);
+    //     con.query(`SELECT * FROM ngo where pincode like ${pincode}%`, function (err, result, fields) {
+    //         if (err) throw err;
+    //         ngoarray.push(result);
+    //       });
+    //  }
+    //  let ngolist= new Set(ngoarray);
+    // send array(ngolist) to template below later
     res.render("ngo.ejs");
 })
-
